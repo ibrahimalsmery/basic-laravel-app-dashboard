@@ -4,26 +4,15 @@
     <a href="{{ route('dashboard.users.create') }}" class="btn btn-primary mb-2">Create New User</a>
     <div class="card card-body">
         <div class="table-responsive">
-            <table id="dt" class="table table-bordered w-100"></table>
+            <table id="dt" class="table table-sm   text-center  table-borderless w-100"></table>
         </div>
     </div>
 @endsection
 
 @section('js')
     <script defer>
-        function editUserRoute(id) {
-            let url = "{{ route('dashboard.users.edit', ['user' => 'replaceme']) }}";
-            return url.replace('replaceme', id)
-        }
-
-        function deleteUserRoute(id) {
-            let url = "{{ route('dashboard.users.delete', ['user' => 'replaceme']) }}";
-            return url.replace('replaceme', id)
-        }
-
         function deleteUser(event, id) {
             event.preventDefault();
-
             Swal.fire({
                 title: 'Are you sure',
                 icon: 'question',
@@ -31,7 +20,7 @@
                 confirmButtonText: 'Save',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    $.get(deleteUserRoute(id));
+                    $.get(`/dashboard/users/delete/${id}`);
                     window.dt_users.draw();
                     return Swal.fire('Done!', '', 'success')
                 }
@@ -101,7 +90,7 @@
                         defaultContent: 404,
                         render: function(data, type, row) {
                             return `
-                                <a href="${editUserRoute(row.id)}"><i class='fas fa-edit'></i></a>
+                                <a href="/dashboard/users/edit/${row.id}"><i class='fas fa-edit'></i></a>
                                 <a style="cursor:pointer" onclick='deleteUser(event,${row.id})'><i class='fas fa-trash text-danger'></i></a>
 
                             `;
