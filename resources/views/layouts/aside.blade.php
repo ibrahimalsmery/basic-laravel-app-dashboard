@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-1">
 
     <a href="{{ url()->full() }}" class="brand-link">
-        <img src="{{ asset('public/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
+        <img src="{{ asset('public/img/logo.png') }}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">{{ env('APP_NAME', '') }}</span>
     </a>

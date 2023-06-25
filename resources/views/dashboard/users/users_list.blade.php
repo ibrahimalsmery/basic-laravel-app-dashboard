@@ -4,7 +4,7 @@
     <a href="{{ route('dashboard.users.create') }}" class="btn btn-primary mb-2">Create New User</a>
     <div class="card card-body">
         <div class="table-responsive">
-            <table id="dt" class="table table-sm   text-center  table-borderless w-100"></table>
+            <table id="dt" class="table table-sm  text-start  table-borderless w-100"></table>
         </div>
     </div>
 @endsection
@@ -57,9 +57,9 @@
                         searchable: false,
                         render(data, type, row) {
                             if (row.image_profile) {
-                                return ` <img src="/${row.image_profile}" style="width: 60px;height: 60px;border-radius: 30px;object-fit: cover;margin: 0px auto;display: block;" alt="User Image">`;
+                                return ` <img src="/${row.image_profile}" style="width: 30px;height: 30px;border-radius: 30px;object-fit: cover;margin: 0px auto;display: block;" alt="User Image">`;
                             } else {
-                                return ` <img src="https://via.placeholder.com/150/000000/FFFFFF?text=${row.name[0]}" style="width: 60px;height: 60px;border-radius: 30px;object-fit: cover;margin: 0px auto;display: block;" alt="User Image">`;
+                                return ` <img src="https://via.placeholder.com/150/000000/FFFFFF?text=${row.name[0]}" style="width: 30px;height: 30px;border-radius: 30px;object-fit: cover;margin: 0px auto;display: block;" alt="User Image">`;
                             }
                         }
                     }, {
